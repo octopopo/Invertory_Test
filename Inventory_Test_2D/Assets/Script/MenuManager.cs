@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour {
     private Transform m_transform;
     public GameObject testObj;
 
+    private List<string> m_List = new List<string>();
+
     [SerializeField]
     private int elementCount;
     // Use this for initialization
@@ -20,6 +22,11 @@ public class MenuManager : MonoBehaviour {
     }
     void Start () {
         ButtonAdded += ItemAdding;
+        m_List.Add("bear");
+        m_List.Add("buffalo");
+        m_List.Add("chick");
+        m_List.Add("chicken");
+        Debug.Log(m_List[2]);
 	}
 	
 	// Update is called once per frame
