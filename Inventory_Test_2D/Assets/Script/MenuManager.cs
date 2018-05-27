@@ -50,7 +50,8 @@ public class MenuManager : MonoBehaviour {
         Sprite m_sp = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
         instance.GetComponent<Image>().sprite = m_sp;
 
-        instance.GetComponents<ElementSC>().elementName = m_List[randNum];
+        //instance.GetComponents<ElementSC>().elementName = m_List[randNum];
+        instance.GetComponent<ElementHand>().eName = m_List[randNum];
 
         elementCount++;
     }
