@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
     public delegate void AddingButtonHandler();
@@ -39,6 +40,18 @@ public class MenuManager : MonoBehaviour {
         //testObj = Instantiate(Resources.Load("Element", typeof(GameObject))) as GameObject;
         instance.transform.parent = m_transform;
         instance.name = "Element" + elementCount;
+
+        int randNum = Random.Range(0, 4);
+
+
+        string url = "file://" + Application.streamingAssetsPath + "/" + m_List[randNum] +".png";
+        Debug.Log(url);
+        WWW www = new WWW(url);
+        Sprite m_sp = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+        instance.GetComponent<Image>().sprite = m_sp;
+
+        
+
         elementCount++;
     }
 }
