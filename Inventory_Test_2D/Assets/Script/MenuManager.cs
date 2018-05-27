@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour {
     public delegate void AddingButtonHandler();
-    public static event AddingButtonHandler buttonAdded;
-	// Use this for initialization
-	void Start () {
-		
+    public static event AddingButtonHandler ButtonAdded;
+
+    private Transform m_transform;
+    public GameObject testObj;
+
+    [SerializeField]
+    private int elementCount;
+    // Use this for initialization
+
+    private void Awake()
+    {
+        m_transform = this.GetComponent<Transform>().transform;
+        elementCount = 0;
+    }
+    void Start () {
+        ButtonAdded += ItemAdding;
 	}
 	
 	// Update is called once per frame
@@ -15,7 +27,11 @@ public class MenuManager : MonoBehaviour {
 		
 	}
 
-    void ItemAdding() {
-        
+    public void ItemAdding() {
+        GameObject instance = Instantiate(Resources.Load("Element", typeof(GameObject))) as GameObject;
+        //testObj = Instantiate(Resources.Load("Element", typeof(GameObject))) as GameObject;
+        instance.transform.parent = m_transform;
+        instance.name = "Element" + elementCount;
+        elementCount++;
     }
 }
