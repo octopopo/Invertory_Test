@@ -53,6 +53,11 @@ public class MenuManager : MonoBehaviour {
         //instance.GetComponents<ElementSC>().elementName = m_List[randNum];
         instance.GetComponent<ElementHand>().eName = m_List[randNum];
 
+        string textUrl = "file://" + Application.streamingAssetsPath + "/" + m_List[randNum] + ".txt";
+        www = new WWW(textUrl);
+
+        instance.GetComponent<ElementHand>().animalDescription = www.text;
+
         elementCount++;
     }
 }

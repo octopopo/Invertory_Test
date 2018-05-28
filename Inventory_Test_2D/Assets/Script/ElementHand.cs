@@ -5,5 +5,5 @@ using UnityEngine;
 public class ElementHand : MonoBehaviour {
 
     public string eName = "";
-
+    public string animalDescription;
 }
